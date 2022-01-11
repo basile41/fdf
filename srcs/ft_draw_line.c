@@ -96,6 +96,27 @@ void	ft_draw_line(t_px px1, t_px px2, t_win *win)
 		if (d.y >= 0)
 			if (d.x >= d.y)
 				ft_dl_octant_1_5(px1, px2, d, win);
+	else
+		ft_dl_octant_2_6(px1, px2, d, win);
+	else
+		if (d.x >= -d.y)
+			ft_dl_octant_8_4(px1, px2, d, win);
+	else
+		ft_dl_octant_7_3(px1, px2, d, win);
+}
+
+/*void	ft_draw_line(t_px px1, t_px px2, t_win *win)
+{
+	t_px	d;
+
+	d.x = px2.x - px1.x;
+	d.y = px2.y - px1.y;
+	if (d.x < 0)
+		ft_draw_line(px2, px1, win);
+	else
+		if (d.y >= 0)
+			if (d.x >= d.y)
+				ft_dl_octant_1_5(px1, px2, d, win);
 			else
 				ft_dl_octant_2_6(px1, px2, d, win);
 		else
@@ -103,5 +124,4 @@ void	ft_draw_line(t_px px1, t_px px2, t_win *win)
 				ft_dl_octant_8_4(px1, px2, d, win);
 			else
 				ft_dl_octant_7_3(px1, px2, d, win);
-
-}
+}*/
