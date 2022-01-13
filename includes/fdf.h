@@ -14,8 +14,12 @@
 # define FDF_H
 
 # include "../libft/libft.h"
+# include "../includes/get_next_line.h"
 # include <mlx.h>
 # include <stdio.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 typedef struct s_win
 {
@@ -29,6 +33,14 @@ typedef struct s_px
 	int	y;
 }t_px;
 
+typedef struct s_map
+{
+	int				high;
+	unsigned int	color;
+}t_map;
+
 void	ft_draw_line(t_px px1, t_px px2, t_win *win);
+
+int		ft_parsing(const char *pathname);
 
 #endif

@@ -19,7 +19,7 @@ void	ft_dl_octant_1_5(t_px px1, t_px px2, t_px d, t_win *win)
 	e = 0;
 	while (px1.x <= px2.x)
 	{
-		mlx_pixel_put(win->mlx, win->win, px1.x, px1.y, 0XFFFFFF);
+		mlx_pixel_put(win->mlx, win->win, px1.x, px1.y, 0xFFFFFF);
 		px1.x++;
 		e += d.y;
 		if ((e << 1) >= d.x)
@@ -37,7 +37,7 @@ void	ft_dl_octant_8_4(t_px px1, t_px px2, t_px d, t_win *win)
 	e = 0;
 	while (px1.x <= px2.x)
 	{
-		mlx_pixel_put(win->mlx, win->win, px1.x, px1.y, 0XFFFFFF);
+		mlx_pixel_put(win->mlx, win->win, px1.x, px1.y, 0xFFFFFF);
 		px1.x++;
 		e += d.y;
 		if ((e << 1) <= d.x)
@@ -55,7 +55,7 @@ void	ft_dl_octant_2_6(t_px px1, t_px px2, t_px d, t_win *win)
 	e = 0;
 	while (px1.y <= px2.y)
 	{
-		mlx_pixel_put(win->mlx, win->win, px1.x, px1.y, 0XFFFFFF);
+		mlx_pixel_put(win->mlx, win->win, px1.x, px1.y, 0xFFFFFF);
 		px1.y++;
 		e += d.x;
 		if ((e << 1) >= d.y)
@@ -73,7 +73,7 @@ void	ft_dl_octant_7_3(t_px px1, t_px px2, t_px d, t_win *win)
 	e = 0;
 	while (px1.y >= px2.y)
 	{
-		mlx_pixel_put(win->mlx, win->win, px1.x, px1.y, 0XFFFFFF);
+		mlx_pixel_put(win->mlx, win->win, px1.x, px1.y, 0xFFFFFF);
 		px1.y--;
 		e += d.x;
 		if ((e << 1) >= d.y)

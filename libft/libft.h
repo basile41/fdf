@@ -6,7 +6,7 @@
 /*   By: bregneau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:27:08 by bregneau          #+#    #+#             */
-/*   Updated: 2021/12/03 12:20:29 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/12 17:13:15 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
 
+char	*ft_itoa(int n);
 int		ft_atoi(const char *str);
+int		ft_atoi_base(char *str, char *base);
 
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
@@ -57,7 +59,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 
-char	*ft_itoa(int n);
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
