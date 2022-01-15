@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bregneau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:53:35 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/11 19:53:38 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/15 16:04:41 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,43 +22,62 @@ int	ft_strs_count(char **strs)
 	return (i);
 }
 
-void	ft_set_point(t_map *point, char *str)
+void	ft_set_point(t_point *point, char *str)
 {
 	char	*ptr;
 
-	point.high = ft_atoi(str);
+	point->high = ft_atoi(str);
 	ptr = ft_strchr(str, ',');
 	if (ptr && ptr[1] == '0' && ptr[2] == 'x')
-		point.color = ft_atoi_base(ptr + 3, "123456789ABCDEF");
+		point->color = ft_atoi_base(ptr + 3, "123456789ABCDEF");
 	else
-		point.color = 0xFFFFFF;
+		point->color = 0xFFFFFF;
 }
 
-void	ft_parse_line(char **strs, t_map *map_line)
+int	ft_parse_line(char *line, t_point **point_line)
 {
-	int	size;
-	int	i;
+	int		size;
+	int		i;
+	char	**strs;
 
+	*point_line = NULL;
+	if (line == NULL)
+		return (1);
+	strs = ft_split(line, ' ');
+	free(line);
 	size = ft_strs_count(strs);
-	map_line = malloc((size + 1) * sizeof(*map_line));
-	if (!map_line)
-		return (NULL);
-	map_line->high = size;
-	while (i++ < size)
-		ft_set_point(map_line + i, strs[i]);
+	*point_line = malloc((size) * sizeof(**point_line));
+	i = 0;
+	while (i < size)
+	{
+		ft_set_point(*point_line + i, strs[i]);
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+	return (1);
 }
 
-int	ft_parsing(const char *pathname)
+t_point	**ft_parsing(const char *pathname)
 {
 	int		fd;
-	t_map	**map;
 	int		i;
+	t_point	**point;
 
+	i = 0;
 	fd = open(pathname, O_RDONLY);
-	while (1)
+	point = NULL;
+	while (42)
 	{
-		map = ft_realloc();
-		ft_parse_line(ft_split(get_next_line(fd), ' '), map);
+		point = ft_realloc(point, i * sizeof(point), (i + 1) * sizeof(point));
+		if (!point)
+			return (0);
+		if (!ft_parse_line(get_next_line(fd), point + i))
+			return (0);
+		if (point[i] == NULL)
+			break ;
+		i++;
 	}
 	close(fd);
+	return (point);
 }

@@ -1,4 +1,19 @@
-SRCS		= 
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/13 19:57:00 by bregneau          #+#    #+#              #
+#    Updated: 2022/01/13 22:45:29 by bregneau         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SRCS		=	srcs/get_next_line.c \
+				srcs/ft_draw_line.c \
+				srcs/ft_parsing.c \
+				main.c
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -7,25 +22,28 @@ LIB			= ./libft/libft.a
 CC			= gcc
 RM			= rm -f
 MLX			= -lmlx -framework OpenGl -framework AppKit
-CFLAGS		= -Wall -Wextra -Werror $(MLX) -c -I./includes
+CFLAGS		= -Wall -Wextra -Werror -I./includes -g
 
 NAME		= fdf
 
 all:		$(NAME)
 
-.o:			
-			$(CC) $(CFLAGS) $< -o ${<.c=.o}
+%.o: %.c
+			@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME):	$(OBJS)
-			$(MAKE) -C ./libft
-			$(CC) $(LIB) $(OBJS) -o $(NAME)
+$(NAME):	$(LIB) $(OBJS)
+			@$(CC) -fsanitize=address -g3 $(MLX) $(LIB) $(OBJS) -o $(NAME)
+
+$(LIB):	
+			@echo "Compiling libft..."
+			@make -C libft
+			@make clean -C libft
 
 clean:		
-			$(RM) $(OBJS)
-			$(MAKE) clean -C ./libft
+			@$(RM) $(OBJS)
 
 fclean:		clean
-			$(RM) $(LIB) $(NAME)
+			@$(RM) $(LIB) $(NAME)
 
 re:			fclean $(NAME)
 
