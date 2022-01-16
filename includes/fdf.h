@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:33:32 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/15 16:44:44 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/15 17:35:22 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ typedef struct s_point
 
 typedef struct s_map
 {
-	int		x_size;
-	int		y_size;
-	t_point	**point;
+	int		nb_line;
+	int		nb_col;
+	t_point	**p;
 }t_map;
 
 void	ft_draw_line(t_px px1, t_px px2, t_win *win);
 
-t_point	**ft_parsing(const char *pathname);
+t_map	*ft_parsing(const char *pathname, t_map *map);
 
 #endif

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_free_strs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 19:19:14 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/16 20:29:48 by bregneau         ###   ########.fr       */
+/*   Created: 2022/01/16 14:41:34 by bregneau          #+#    #+#             */
+/*   Updated: 2022/01/16 15:52:12 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_realloc(void *ptr, size_t old_size, size_t size)
+void	ft_free_strs(char **strs)
 {
-	char	*newptr;
+	int	i;
 
-	if (ptr == NULL)
-		return (malloc(size));
-	newptr = malloc(size);
-	if (newptr == NULL)
-		return (NULL);
-	if (old_size < size)
-		size = old_size;
-	ft_memcpy(newptr, ptr, size);
-	free(ptr);
-	return (newptr);
+	if (strs)
+	{
+		while (strs[i])
+			free(strs[i++]);
+		free(strs);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:27:08 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/13 21:10:54 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/16 21:01:58 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char	*ft_itoa(int n);
 int		ft_atoi(const char *str);
 int		ft_atoi_base(char *str, char *base);
 
+void	ft_free_strs(char **strs);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_realloc(void *ptr, size_t old_size, size_t size);
 char	*ft_strdup(const char *s1);

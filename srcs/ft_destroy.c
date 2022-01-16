@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_destroy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 19:19:14 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/16 20:29:48 by bregneau         ###   ########.fr       */
+/*   Created: 2022/01/15 17:28:46 by bregneau          #+#    #+#             */
+/*   Updated: 2022/01/16 14:32:25 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/fdf.h"
 
-void	*ft_realloc(void *ptr, size_t old_size, size_t size)
+void	ft_destroy_map(t_map *map)
 {
-	char	*newptr;
+	int	i;
 
-	if (ptr == NULL)
-		return (malloc(size));
-	newptr = malloc(size);
-	if (newptr == NULL)
-		return (NULL);
-	if (old_size < size)
-		size = old_size;
-	ft_memcpy(newptr, ptr, size);
-	free(ptr);
-	return (newptr);
+	i = -1;
+	if (map)
+	{
+		if (map->p)
+		{
+			while (++i < map->nb_line)
+			{
+				free(map->p[i]);
+			}
+			free(map->p);
+		}
+		free(map);
+	}
 }
