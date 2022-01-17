@@ -6,7 +6,7 @@
 #    By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/24 17:43:00 by bregneau          #+#    #+#              #
-#    Updated: 2022/01/16 21:02:23 by bregneau         ###   ########.fr        #
+#    Updated: 2022/01/17 12:38:14 by bregneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,6 @@ $(NAME):		$(OBJS)
 
 clean:
 				@$(RM) $(OBJS) $(BONUS_OBJS)
-				@echo "Objects files deleted"
 
 fclean:			clean
 				@$(RM) $(NAME)

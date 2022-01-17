@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:33:32 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/15 17:35:22 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/17 17:25:22 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ typedef struct s_map
 void	ft_draw_line(t_px px1, t_px px2, t_win *win);
 
 t_map	*ft_parsing(const char *pathname, t_map *map);
+void	*ft_puterror(t_map *map, char *msg);
+void	ft_destroy_map(t_map *map);
 
 #endif
