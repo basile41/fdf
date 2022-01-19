@@ -26,7 +26,7 @@ int	ft_strs_count(char **strs)
 
 void	ft_parse_point(t_point *point, char *str)
 {
-	point->high = ft_atoi(str);
+	point->height = ft_atoi(str);
 	point->color = 0;
 	str = ft_strchr(str, ',');
 	if (str && ft_strlen(str) == 11)
