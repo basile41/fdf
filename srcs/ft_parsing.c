@@ -63,8 +63,6 @@ t_map	*ft_parse(int fd, t_map *map)
 	int		nb_col;
 
 	p = ft_calloc(1, sizeof(*p));
-	if (p == NULL)
-		return (NULL);
 	i = 0;
 	nb_col = ft_parse_line(fd, p);
 	map->nb_col = nb_col;
@@ -82,14 +80,10 @@ t_map	*ft_parse(int fd, t_map *map)
 	return (map);
 }
 
-t_map	*ft_parsing(const char *pathname, t_map *map)
+void	ft_parsing(const char *pathname, t_map *map)
 {
 	int	fd;
 
 	fd = open(pathname, O_RDONLY);
-	map = ft_calloc(1, sizeof(*map));
-	if (map == NULL)
-		return (NULL);
 	ft_parse(fd, map);
-	return (map);
 }
