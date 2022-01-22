@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 14:41:34 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/17 12:35:03 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/22 18:51:46 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ void	ft_free_strs(char **strs)
 	if (strs)
 	{
 		while (strs[i])
-			free(strs[i++]);
+		{
+			free(strs[i]);
+			strs[i] = NULL;
+			i++;
+		}
 		free(strs);
 	}
 }
