@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_moves_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 19:32:08 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/22 20:09:37 by bregneau         ###   ########.fr       */
+/*   Created: 2022/01/22 17:13:08 by bregneau          #+#    #+#             */
+/*   Updated: 2022/01/22 19:27:39 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fdf.h"
+#include "../includes/fdf.h"
 
-
-
-int	main(int ac, char **av)
+void	ft_add_z(t_map *map)
 {
-	t_data	data;
+	int	i;
+	int	j;
 
-	if (ac == 2)
+	while (i < map->nb_line)
 	{
-		ft_bzero(&data, sizeof(data));
-		ft_init(WINDOW_WIDTH, WINDOW_HEIGHT, &data);
-		ft_parsing(av[1], &data.map);
-		ft_create_map(&data.map);
-		ft_draw_map(&data, &data.map);
-		mlx_loop(data.mlx_ptr);
-		ft_destroy(&data);
+		j = 0;
+		while (j < map->nb_col)
+		{
+			map->px2[i][j].x = map->px[i][j].x;
+			map->px2[i][j].y = map->px[i][j].y - map->p[i][j].height * 5;
+			j++;
+		}
+		i++;
 	}
-	else
-		ft_putendl("Incorrect number of arguments");
+}
+
+void	ft_rotation(t_map *map)
+{
+	
+}
+
+void	ft_translation(t_map *map)
+{
+	
 }

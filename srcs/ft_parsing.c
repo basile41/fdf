@@ -56,7 +56,7 @@ int	ft_parse_line(int fd, t_point **p)
 	return (i);
 }
 
-t_map	*ft_parse(int fd, t_map *map)
+int	ft_parse(int fd, t_map *map)
 {
 	int		i;
 	t_point	**p;
@@ -71,19 +71,26 @@ t_map	*ft_parse(int fd, t_map *map)
 		i = ++map->nb_line;
 		p = ft_realloc(p, i * sizeof(*p), (i + 1) * sizeof(*p));
 		if (p == NULL)
-			return (ft_puterror(map, "Alloc error"));
+			return (ft_puterror(strerror(errno)));
 		map->p = p;
 		nb_col = ft_parse_line(fd, p + i);
 	}
 	if (nb_col && nb_col < map->nb_col)
-		return (ft_puterror(map, "Found wrong line length. Exiting."));
-	return (map);
+		return (ft_puterror("Found wrong line length. Exiting."));
+	return (1);
 }
 
-void	ft_parsing(const char *pathname, t_map *map)
+int	ft_parsing(const char *pathname, t_map *map)
 {
 	int	fd;
+	int	success;
 
+	success = 0;
 	fd = open(pathname, O_RDONLY);
-	ft_parse(fd, map);
+	if (fd == -1)
+		ft_putendl(strerror(errno));
+	else
+		success = ft_parse(fd, map);
+	close(fd);
+	return (success);
 }

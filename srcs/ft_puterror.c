@@ -6,15 +6,14 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:17:23 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/17 12:28:25 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/22 19:49:28 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	*ft_puterror(t_map *map, char *msg)
+int	ft_puterror(char *msg)
 {
 	ft_putendl(msg);
-	ft_destroy_map(map);
-	return (NULL);
+	return (0);
 }
