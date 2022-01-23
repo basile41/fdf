@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:36:07 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/22 20:27:47 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/23 16:13:15 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_img_pix_put(t_img *img, size_t x, size_t y, int color)
 {
 	char	*pixel;
 
-	if (x > img->x_size || y > img->y_size)
+	if (x >= img->x_size || y >= img->y_size)
 		return ;
 	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
 	*(int *)pixel = color;

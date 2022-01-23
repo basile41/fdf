@@ -47,7 +47,9 @@ int	ft_parse_line(int fd, t_point **p)
 	strs = ft_split(line, ' ');
 	free(line);
 	size = ft_strs_count(strs);
-	pl = malloc(size * sizeof(*pl));
+	pl = ft_calloc(size, sizeof(*pl));
+	if (pl == NULL)
+		size = ft_puterror(strerror(errno));
 	i = -1;
 	while (++i < size)
 		ft_parse_point(pl + i, strs[i]);
@@ -63,10 +65,12 @@ int	ft_parse(int fd, t_map *map)
 	int		nb_col;
 
 	p = ft_calloc(1, sizeof(*p));
+	if (p == NULL)
+		return (ft_puterror(strerror(errno)));
 	i = 0;
 	nb_col = ft_parse_line(fd, p);
 	map->nb_col = nb_col;
-	while (nb_col && nb_col == map->nb_col)
+	while (nb_col && nb_col >= map->nb_col)
 	{
 		i = ++map->nb_line;
 		p = ft_realloc(p, i * sizeof(*p), (i + 1) * sizeof(*p));
@@ -77,6 +81,8 @@ int	ft_parse(int fd, t_map *map)
 	}
 	if (nb_col && nb_col < map->nb_col)
 		return (ft_puterror("Found wrong line length. Exiting."));
+	if (map->nb_line == 0)
+		return (ft_puterror("Empty file"));
 	return (1);
 }
 

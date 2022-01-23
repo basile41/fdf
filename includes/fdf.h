@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:33:32 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/22 21:01:10 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/23 17:36:34 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,12 @@ typedef struct s_map
 	int		nb_line;
 	int		nb_col;
 	t_point	**p;
+	t_px	start;
 	t_px	**px;
 	t_px	**px2;
-	int		width;
-	int		height;
+	float	width;
+	float	height;
+	int		z_mult;
 }t_map;
 
 typedef struct s_data
@@ -81,7 +83,7 @@ void	ft_destroy_map(t_map *map);
 void	ft_init(int x, int y, t_data *data);
 void	ft_img_pix_put(t_img *img, size_t x, size_t y, int color);
 void	ft_img_create(size_t x, size_t y, t_data *data);
-void	ft_create_map(t_map *map);
+void	ft_create_map(t_map *map, t_data *data);
 void	ft_draw_map(t_data *data, t_map *map);
 
 #endif

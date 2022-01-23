@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:38:11 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/21 18:21:04 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/23 18:20:30 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,6 @@ void	ft_dl_octant_7_3(t_px px1, t_px px2, t_px d, t_data *data)
 	int	e;
 
 	e = 0;
-	// ft_img_pix_put(&data->img, px1.x, px1.y, 0xFFFFFF);
-	// e += d.x;
-	// if ((e << 1) > d.y)
-	// {
-	// 	px1.x++;
-	// 	e += d.y;
-	// }
-	// px1.y--;
 	while (px1.y >= px2.y)
 	{
 		ft_img_pix_put(&data->img, px1.x, px1.y, 0xFFFFFF);
