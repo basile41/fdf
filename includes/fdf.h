@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:33:32 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/24 21:09:24 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:51:30 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ typedef struct s_map
 	int		z;
 	double	angle;
 	double	zoom;
-	
 }t_map;
 
 typedef struct s_data
@@ -91,6 +90,7 @@ void	ft_translation(t_data *data, t_map *map, int x, int y);
 void	ft_rotation(t_data *data, t_map *map, double angle);
 void	ft_zoom(t_data *data, t_map *map, double s);
 void	ft_add_z(t_map *map, t_px **px);
+void	ft_move_z(t_data *data, t_map *map, int z);
 void	ft_hud(t_data *data);
 
 #endif

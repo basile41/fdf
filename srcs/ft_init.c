@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 17:28:25 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/24 21:01:16 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:55:21 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 
 void	ft_hud(t_data *data)
 {
-	mlx_string_put (data->mlx_ptr, data->win_ptr, 0, 0, 0x00FF00,
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 0, 0, 0x00FF00,
 		"Fleches : deplacer la map");
-	mlx_string_put (data->mlx_ptr, data->win_ptr, 0, 20, 0x00FF00,
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 0, 20, 0x00FF00,
 		"Molette : zoom");
-	mlx_string_put (data->mlx_ptr, data->win_ptr, 400, 0, 0x00FF00,
-		"");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 400, 0, 0x00FF00,
+		"+ : augmenter la hauteur");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 400, 20, 0x00FF00,
+		"- : diminuer la hauteur");
 }
 
 int	ft_key_hook(int key, t_data *data)
 {
+	if (key == 69)
+		ft_move_z(data, &data->map, 1);
+	if (key == 78)
+		ft_move_z(data, &data->map, -1);
 	if (key == 15)
 		ft_rotation(data, &data->map, 0.1);
 	if (key == 126)
@@ -34,9 +40,7 @@ int	ft_key_hook(int key, t_data *data)
 		ft_translation(data, &data->map, -10, 0);
 	if (key == 124)
 		ft_translation(data, &data->map, 10, 0);
-	printf("touche : %d\n", key);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-		data->img.img_ptr, 0, 0);
+	// printf("touche : %d\n", key);
 	if (key == 53)
 		ft_exit(data, EXIT_SUCCESS);
 	return (0);
@@ -48,8 +52,10 @@ int	ft_mouse_hook(int button, int x, int y, t_data *data)
 		ft_zoom(data, &data->map, 1.1);
 	if (button == 5)
 		ft_zoom(data, &data->map, 0.9);
-	printf("touche : %d\n", button);
-	printf("x = %d, y = %d\n", x, y);
+	y = 0;
+	x = 0;
+	// printf("touche : %d\n", button);
+	// printf("x = %d, y = %d\n", x, y);
 	return (0);
 }
 
