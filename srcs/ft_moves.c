@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 17:13:08 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/25 14:39:38 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:29:20 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,4 @@ void	ft_translation(t_data *data, t_map *map, int x, int y)
 	map->origin.x += x;
 	map->origin.y += y;
 	ft_zoom(data, &data->map, 1);
-	// ft_add_z(map, map->px);
-	// ft_draw_map(data, map);
 }

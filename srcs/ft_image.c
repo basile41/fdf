@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:36:07 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/25 14:21:49 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:29:07 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_clear(t_data *data)
 {
-//	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
 	ft_img_create(WINDOW_WIDTH, WINDOW_HEIGHT, data);
 }

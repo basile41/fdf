@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 17:28:25 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/25 16:55:21 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:29:54 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	ft_key_hook(int key, t_data *data)
 		ft_translation(data, &data->map, -10, 0);
 	if (key == 124)
 		ft_translation(data, &data->map, 10, 0);
-	// printf("touche : %d\n", key);
 	if (key == 53)
 		ft_exit(data, EXIT_SUCCESS);
 	return (0);
@@ -54,8 +53,6 @@ int	ft_mouse_hook(int button, int x, int y, t_data *data)
 		ft_zoom(data, &data->map, 0.9);
 	y = 0;
 	x = 0;
-	// printf("touche : %d\n", button);
-	// printf("x = %d, y = %d\n", x, y);
 	return (0);
 }
 
