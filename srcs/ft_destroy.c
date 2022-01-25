@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:28:46 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/22 20:55:56 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:43:25 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	ft_destroy_map(t_map *map)
 	{
 		ft_destroy_pixels(map, map->px);
 		map->px = NULL;
-		ft_destroy_pixels(map, map->px2);
-		map->px2 = NULL;
+		ft_destroy_pixels(map, map->px_z);
+		map->px_z = NULL;
 		ft_destroy_points(map, map->p);
 		map->p = NULL;
 	}

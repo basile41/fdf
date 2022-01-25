@@ -6,11 +6,18 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:36:07 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/23 16:13:15 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/24 19:12:20 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void	ft_clear(t_data *data)
+{
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
+	ft_img_create(WINDOW_WIDTH, WINDOW_HEIGHT, data);
+}
 
 void	ft_img_create(size_t x, size_t y, t_data *data)
 {

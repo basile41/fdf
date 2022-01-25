@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:33:32 by bregneau          #+#    #+#             */
-/*   Updated: 2022/01/23 17:36:34 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/01/24 21:09:24 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,11 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include <errno.h>  
+# include <errno.h>
+# include <math.h>
 
-# ifndef WINDOW_WIDTH
-#  define WINDOW_WIDTH 1600
-# endif
-# ifndef WINDOW_HEIGHT
-#  define WINDOW_HEIGHT 900
-# endif
+# define WINDOW_WIDTH 1600
+# define WINDOW_HEIGHT 900
 
 typedef struct s_px
 {
@@ -58,11 +55,15 @@ typedef struct s_map
 	int		nb_col;
 	t_point	**p;
 	t_px	start;
+	t_px	origin;
 	t_px	**px;
-	t_px	**px2;
+	t_px	**px_z;
 	float	width;
 	float	height;
-	int		z_mult;
+	int		z;
+	double	angle;
+	double	zoom;
+	
 }t_map;
 
 typedef struct s_data
@@ -83,7 +84,13 @@ void	ft_destroy_map(t_map *map);
 void	ft_init(int x, int y, t_data *data);
 void	ft_img_pix_put(t_img *img, size_t x, size_t y, int color);
 void	ft_img_create(size_t x, size_t y, t_data *data);
+void	ft_clear(t_data *data);
 void	ft_create_map(t_map *map, t_data *data);
 void	ft_draw_map(t_data *data, t_map *map);
+void	ft_translation(t_data *data, t_map *map, int x, int y);
+void	ft_rotation(t_data *data, t_map *map, double angle);
+void	ft_zoom(t_data *data, t_map *map, double s);
+void	ft_add_z(t_map *map, t_px **px);
+void	ft_hud(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/13 19:57:00 by bregneau          #+#    #+#              #
-#    Updated: 2022/01/20 21:13:16 by bregneau         ###   ########.fr        #
+#    Updated: 2022/01/24 18:06:11 by bregneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS		=	srcs/get_next_line.c \
 				srcs/ft_init.c \
 				srcs/ft_image.c \
 				srcs/ft_map.c \
+				srcs/ft_moves.c \
 				main.c
 
 OBJS		= $(SRCS:.c=.o)
